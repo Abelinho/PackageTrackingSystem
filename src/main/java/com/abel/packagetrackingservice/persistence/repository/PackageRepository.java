@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PackageRepository extends JpaRepository<PackageEntity, Long> {
 
+     PackageEntity findByPackageId(String packageId);
+
 }

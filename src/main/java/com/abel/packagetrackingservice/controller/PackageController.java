@@ -60,21 +60,16 @@ public class PackageController {
     // and WAREHOUSE multiple times but it’s not possible to be PICKED_UP and DELIVERED more than once.
     //check the status of a package BEFORE updating it!
 
-    @PutMapping(value = "/client", produces = "Application/json", consumes = "Application/json")
+    @PutMapping(value = "/packages", produces = "Application/json", consumes = "Application/json")
     public ResponseEntity<PackageResponse> updatePackage(@Valid @RequestBody PackageRequest request){
 
         //sanitise the request to prevent HTML injection!!!
 
-
         //call the service
-        ClientResponse clientResponse = clientService.updateClient(sanitizedRequest);
+        PackageResponse clientResponse = packageService.updatePackage(request);
 
-        AppResponse<ClientResponse> response = AppResponse.<ClientResponse>builder()
-                .message("Success")
-                .status(HttpStatus.OK.toString())
-                .data(clientResponse)
-                .build();
-        return ResponseEntity.ok().body(response);
+
+        return ResponseEntity.ok().body(clientResponse);
 
     }
 }

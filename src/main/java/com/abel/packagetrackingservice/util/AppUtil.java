@@ -1,5 +1,7 @@
 package com.abel.packagetrackingservice.util;
 
+import org.springframework.util.StringUtils;
+
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -24,6 +26,16 @@ public class AppUtil {
         }
 
         return new String(returnValue);
+    }
+
+
+    public static String sanitize(String data) {
+        if (data.contains("_")) {
+            data = data.replace("_", " ");
+        } else if (data.contains("-")) {
+            data = data.replace("-", " ");
+        }
+        return StringUtils.capitalize(data);
     }
 
 //

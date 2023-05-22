@@ -1,5 +1,6 @@
 package com.abel.packagetrackingservice.service;
 
+import com.abel.packagetrackingservice.core.exception.PackageNotFoundException;
 import com.abel.packagetrackingservice.dto.request.PackageRequest;
 import com.abel.packagetrackingservice.dto.response.PackageResponse;
 import com.abel.packagetrackingservice.persistence.entity.PackageEntity;
@@ -73,5 +74,28 @@ public class PackageService {
         }
 
         return returnValue;
+    }
+
+    public PackageResponse getPackageById(String id) {
+
+       PackageEntity packageEntity = packageRepository.findByPackageId(id);
+
+       if (packageEntity==null)
+           throw new PackageNotFoundException("no such package exists!!");
+
+      return PackageResponse.builder()
+               .lastModifiedDate(packageEntity.getLastModifiedDate())
+               .location(packageEntity.getLocation())
+               .packageName(packageEntity.getPackageName())
+               .status(packageEntity.getStatus())
+               .packageId(packageEntity.getPackageId())
+               .build();
+    }
+
+    public PackageResponse updatePackage(PackageRequest request) {
+        //to do: implement all the status checks here
+        //if req.status == PICKED_UP, throw exception
+        //if PackageEntity.status == DELIVERED, throw exception
+
     }
 }
