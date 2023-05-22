@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @AllArgsConstructor
 @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Invalid value passed")
 @EqualsAndHashCode(callSuper = false)
-public class IllegalStateException extends RuntimeException {
+public class IllegalStatusException extends RuntimeException {
 
-    public IllegalStateException(String message) {
+    public IllegalStatusException(String message) {
         super(message);
     }
 }

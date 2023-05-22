@@ -8,6 +8,7 @@ import com.sun.deploy.association.utility.AppUtility;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,12 +65,19 @@ public class PackageController {
     public ResponseEntity<PackageResponse> updatePackage(@Valid @RequestBody PackageRequest request){
 
         //sanitise the request to prevent HTML injection!!!
-
         //call the service
         PackageResponse clientResponse = packageService.updatePackage(request);
 
-
         return ResponseEntity.ok().body(clientResponse);
+    }
+
+    @DeleteMapping(value = "/packages/{id}")
+    public ResponseEntity<PackageResponse> deletePackage(@PathVariable("id") String id){
+
+        PackageResponse packageResponse = packageService.deletePackage(id);
+
+        return ResponseEntity.ok().body(packageResponse);
 
     }
+
 }

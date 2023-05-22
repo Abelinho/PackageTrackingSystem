@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PackageRequest {
 
+    private String packageId;
+
     //@Schema(required=true) add swagger!
     @NotEmpty(message = "packageName cannot be empty")
     @JsonProperty("packageName")

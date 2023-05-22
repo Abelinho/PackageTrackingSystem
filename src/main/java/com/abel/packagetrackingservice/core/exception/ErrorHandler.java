@@ -32,8 +32,8 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
                 .build());
     }
 
-    @ExceptionHandler(IllegalStateException.class)
-    public final ResponseEntity<AppResponse<ErrorDetails>> handleIllegalStateException(IllegalStateException ex, WebRequest request) {
+    @ExceptionHandler(IllegalStatusException.class)
+    public final ResponseEntity<AppResponse<ErrorDetails>> handleIllegalStateException(IllegalStatusException ex, WebRequest request) {
 
         ErrorDetails errorDetails =
                 new ErrorDetails(new Date(), ex.getMessage(),
