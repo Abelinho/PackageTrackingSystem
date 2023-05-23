@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "737daf31-56ca-4319-af12-d2fc3e45f865",
+		"name": "PackageTrackingSytem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreatePackage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lastModifiedDate\": \"2023-05-23T01:06:23\",\r\n  \"location\": \"Lagos\",\r\n  \"packageId\": \"\",\r\n  \"packageName\": \"second package\",\r\n  \"status\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8099/api/v1/packages",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"api",
+						"v1",
+						"packages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPackageById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8099/api/v1/packages/KgAp7",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"api",
+						"v1",
+						"packages",
+						"KgAp7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePackage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lastModifiedDate\": \"2023-05-23T13:05:06.769Z\",\r\n  \"location\": \"Abuja\",\r\n  \"packageId\": \"0UFqs\",\r\n  \"packageName\": \"latestPackageName\",\r\n  \"status\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8099/api/v1/packages",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"api",
+						"v1",
+						"packages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePackage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8099/api/v1/packages/KgAp7",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"api",
+						"v1",
+						"packages",
+						"KgAp7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
