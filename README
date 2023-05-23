@@ -1,0 +1,10 @@
+1.start docker
+2.navigate to the root directory of your cloned project(where the docker file is)
+3. run docker build -t your-image-name .
+4. run docker images to confirm that the image was successfully built
+5. run Docker run –p 8081:8080 [docker image name] to spin up the container
+6. Test the endpoints: refer to the postman collection in the project repo
+
+N.B: I intentionally didnt add security to the application to make testing seamless
+and also because it was not part of the original requirement
+I can add security if instructed to do so subsequently
