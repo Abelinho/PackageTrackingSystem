@@ -1,11 +1,12 @@
 package com.abel.packagetrackingservice.dto.request;
 
-import com.abel.packagetrackingservice.PackageState;
+import com.abel.packagetrackingservice.enums.PackageState;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Data
@@ -19,10 +20,10 @@ public class PackageRequest {
     @JsonProperty("packageName")
     private String packageName;
 
-    @NotEmpty(message = "status cannot be empty")
+    @NotNull(message = "Status must not be null")
     private PackageState status;
 
-    @NotEmpty(message = "lastModifiedDate cannot be empty")
+    @NotNull(message = "lastModifiedDate must not be null")
     private LocalDateTime lastModifiedDate;
 
     private String location;

@@ -1,6 +1,6 @@
 package com.abel.packagetrackingservice.dto.response;
 
-import com.abel.packagetrackingservice.PackageState;
+import com.abel.packagetrackingservice.enums.PackageState;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

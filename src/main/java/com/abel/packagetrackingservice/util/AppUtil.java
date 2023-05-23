@@ -1,16 +1,18 @@
 package com.abel.packagetrackingservice.util;
 
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.security.SecureRandom;
 import java.util.Random;
 
+@Component
 public class AppUtil {
 
     private final Random RANDOM = new SecureRandom();
     private final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-    public String generateUserId(int length) {
+    public String generatePackageId(int length) {
         return generateRandomString(length);
     }
 

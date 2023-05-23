@@ -1,4 +1,4 @@
-package com.abel.packagetrackingservice;
+package com.abel.packagetrackingservice.enums;
 
 public enum PackageState  {
 

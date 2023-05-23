@@ -1,6 +1,6 @@
 package com.abel.packagetrackingservice.persistence.entity;
 
-import com.abel.packagetrackingservice.PackageState;
+import com.abel.packagetrackingservice.enums.PackageState;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,7 +36,7 @@ public class PackageEntity implements Serializable {
     @NotNull(message = "packageName is required !")
     private String packageName;
 
-    @Column(name="status",unique = true, nullable = false)
+    @Column(name="status", nullable = false)
     @NotNull(message = "status is required !")
     private PackageState status;
 

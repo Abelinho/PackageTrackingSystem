@@ -4,6 +4,7 @@ import com.abel.packagetrackingservice.core.exception.IllegalStatusException;
 import com.abel.packagetrackingservice.core.exception.PackageNotFoundException;
 import com.abel.packagetrackingservice.dto.request.PackageRequest;
 import com.abel.packagetrackingservice.dto.response.PackageResponse;
+import com.abel.packagetrackingservice.enums.PackageState;
 import com.abel.packagetrackingservice.persistence.entity.PackageEntity;
 import com.abel.packagetrackingservice.persistence.repository.PackageRepository;
 import com.abel.packagetrackingservice.util.AppUtil;
@@ -30,7 +31,7 @@ public class PackageService {
 
 
         PackageEntity packageEntity = new PackageEntity();
-        packageEntity.setPackageId(appUtil.generateUserId(5));
+        packageEntity.setPackageId(appUtil.generatePackageId(5));
         packageEntity.setPackageName(request.getPackageName());
         packageEntity.setLocation(request.getLocation());
         packageEntity.setLastModifiedDate(request.getLastModifiedDate());
@@ -104,10 +105,10 @@ public class PackageService {
             throw new PackageNotFoundException("no such package exists!!");
         }
 
-        if (request.getStatus().equals(0))
+        if (request.getStatus()== PackageState.PICKED_UP)
             throw new IllegalStatusException("Package can only be picked up once!");
 
-        if (packageToUpdate.getStatus().equals(3))
+        if (packageToUpdate.getStatus()== PackageState.DELIVERED)
             throw new IllegalStatusException("Package can only be delivered once!");
 
         packageToUpdate.setLocation(request.getLocation());
