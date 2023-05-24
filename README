@@ -4,6 +4,11 @@
 4. run docker images to confirm that the image was successfully built
 5. run Docker run –p 8081:8080 [docker image name] to spin up the container
 6. Test the endpoints: refer to the postman collection in the project repo
+7. The application uses H2 database, an in memory db. To see the records in
+   the db, go to http://localhost:[port]/h2-console/
+
+   You might need to use the logged jdbc url to replace the default one while
+   connecting to the h2 db
 
 N.B: I intentionally didnt add security to the application to make testing seamless
 and also because it was not part of the original requirement
